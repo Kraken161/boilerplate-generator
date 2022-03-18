@@ -11,5 +11,6 @@
 		"yargs": "^17.3.1"
 	},
 	"keywords": [],
-	"description": ""
+	"description": "",
+	"bin": "index.js"
 }
