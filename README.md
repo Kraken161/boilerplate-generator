@@ -4,11 +4,11 @@
 
 # Installation
 
-📥 `npm install boilerplate-generator -g`
+📥 `npm install boilerplate-generate -g`
 
 # Usage
 
-📃 `boilerplate-generator generate --express`
+📃 `boilerplate-generate generate --express`
 
 # Author
 
