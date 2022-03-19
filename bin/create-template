@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 require = require('esm')(module)
 const yargs = require('yargs')
 const { promisify } = require('util')
 const inquirer = require('inquirer')
-const MainFunction = require('../lib/src/main')
+const MainFunction = require('../../lib/src/main')
 
 const licenses = [
 	'agpl-3.0',
