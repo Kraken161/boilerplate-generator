@@ -4,7 +4,7 @@ require = require('esm')(module)
 const yargs = require('yargs')
 const { promisify } = require('util')
 const inquirer = require('inquirer')
-const MainFunction = require('../../lib/src/main')
+const MainFunction = require('../src/main.js')
 
 const licenses = [
 	'agpl-3.0',
