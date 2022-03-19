@@ -30,7 +30,7 @@ class TemplateSettings {
 					throw new Error('Wrong language')
 				}
 
-				const data = response.json()
+				const data = response
 				fs.writeFile(
 					path.join(options.directory, '.gitignore'),
 					data.source,
@@ -49,10 +49,10 @@ class TemplateSettings {
 			)
 
 			if (response?.message == 'Not Found') {
-				throw new Error('Wrong language')
+				throw new Error('Wrong lincense')
 			}
 
-			const data = response.json()
+			const data = response
 
 			const year = new Date().getFullYear()
 			const fullname = options.fullname
