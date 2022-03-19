@@ -12,5 +12,7 @@
 	},
 	"keywords": [],
 	"description": "",
-	"bin": "index.js"
+	"bin": {
+		"github-pages-commit": "cli/cli.js"
+	}
 }
