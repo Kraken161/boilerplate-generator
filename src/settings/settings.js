@@ -57,12 +57,9 @@ class TemplateSettings {
 
 			const data = response.data
 
-			const content = data.source
+			const content = data.body
 
-			fs.writeFileSync(
-				path.join(options.targetDirectory, 'LICENSE'),
-				content.toString()
-			)
+			fs.writeFileSync(path.join(options.targetDirectory, 'LICENSE'), content)
 		} catch (error) {
 			throw new Error(error)
 		}
