@@ -4,9 +4,6 @@
 	"main": "index.js",
 	"author": "Kraken",
 	"license": "ISC",
-	"scripts": {
-		"boilerplate-generate": "node . index.js"
-	},
 	"dependencies": {
 		"chalk": "^4.1.2",
 		"express": "^4.17.3",
