@@ -1,2 +1,3 @@
 #! /usr/bin/env node
-console.log('sddsda')
+require = require('esm')(module)
+require('./cli/cli').cli(process.argv)
