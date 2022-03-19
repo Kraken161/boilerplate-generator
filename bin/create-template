@@ -1,6 +1,3 @@
-#!/usr/bin/env node
-
-require = require('esm')(module)
 const yargs = require('yargs')
 const { promisify } = require('util')
 const inquirer = require('inquirer')
