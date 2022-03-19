@@ -33,8 +33,7 @@ class TemplateSettings {
 				const data = response.data
 				fs.writeFile(
 					path.join(options.targetDirectory, '.gitignore'),
-					data.source,
-					'utf8'
+					data.source
 				)
 			} catch (error) {
 				throw new Error(error)
@@ -55,7 +54,7 @@ class TemplateSettings {
 			const data = response.data
 
 			const year = new Date().getFullYear()
-			const fullname = options.fullname
+			const fullname = options.fullName
 
 			const content = data
 
