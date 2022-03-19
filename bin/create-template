@@ -3,8 +3,6 @@
 require = require('esm')(module)
 const yargs = require('yargs')
 const { promisify } = require('util')
-//const { expressGen } = require('../lib/src/generator/express.js')
-const { createProject } = require('../lib/src/main.js')
 const inquirer = require('inquirer')
 const MainFunction = require('../lib/src/main.js')
 
