@@ -20,30 +20,32 @@ class TemplateSettings {
 	}
 
 	async createGitignore(options) {
-		try {
-			const response = await axios.get(
-				`https://api.github.com/gitignore/templates/${options.language}`
-			)
+		if (options.gitignore) {
+			try {
+				const response = await axios.get(
+					`https://api.github.com/gitignore/templates/Node`
+				)
 
-			if (response?.message == 'Not Found') {
-				throw new Error('Wrong language')
+				if (response?.message == 'Not Found') {
+					throw new Error('Wrong language')
+				}
+
+				const data = response.json()
+				fs.writeFile(
+					path.join(options.directory, '.gitignore'),
+					data.source,
+					'utf8'
+				)
+			} catch (error) {
+				throw new Error(error)
 			}
-
-			const data = response.json()
-			fs.writeFile(
-				path.join(options.directory, '.gitignore'),
-				data.source,
-				'utf8'
-			)
-		} catch (error) {
-			throw new Error(error)
 		}
 	}
 
 	async createLicense(options) {
 		try {
 			const response = await axios.get(
-				`https://api.github.com/licenses/${options.type}`
+				`https://api.github.com/licenses/${options.license}`
 			)
 
 			if (response?.message == 'Not Found') {

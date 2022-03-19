@@ -16,11 +16,14 @@ class MainFunction {
 			fullName: 'Your name.',
 		}
 
-		const fullPathName = cwd()
+		const fullPathName = new URL(import.meta.url).pathname
 		const templateDir = path.join(
-			fullPathName + '/templates',
+			fullPathName.substring(1).substr(fullPathName.indexOf('/')),
+			'../../templates',
 			options.type.toLowerCase()
 		)
+
+		console.log(templateDir)
 
 		options.templateDirectory = templateDir
 

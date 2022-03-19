@@ -1,45 +1,53 @@
 {
-	"name": "boilerplate-generate",
-	"version": "1.1.2",
-	"main": "src/index.js",
-	"bin": {
-		"create-template": "bin/create-template"
-	},
-	"files": [
-		"bin/",
-		"src/",
-		"templates/"
-	],
-	"publishConfig": {
-		"access": "public"
-	},
-	"keywords": [
-		"cli",
-		"create-template"
-	],
-	"author": "kraken777",
-	"license": "MIT",
-	"dependencies": {
-		"arg": "^4.1.0",
-		"axios": "^0.26.1",
-		"chalk": "^4.1.0",
-		"covgen": "^3.1.0",
-		"esm": "^3.2.18",
-		"execa": "^1.0.0",
-		"gitignore": "^0.6.0",
-		"inquirer": "^6.5.2",
-		"listr": "^0.14.3",
-		"ncp": "^2.0.0",
-		"pkg-install": "^0.2.0",
-		"shelljs": "^0.8.5",
-		"yargs": "^17.3.1"
-	},
-	"description": "📕 `It's an npm package for generating application templates.`",
-	"directories": {
-		"lib": "lib"
-	},
-	"devDependencies": {},
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	}
+  "name": "boilerplate-generate",
+  "version": "1.1.2",
+  "main": "src/index.js",
+  "bin": {
+    "create-template": "bin/create-template"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "templates/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "cli",
+    "create-template"
+  ],
+  "author": "kraken777",
+  "license": "MIT",
+  "dependencies": {
+    "arg": "^4.1.0",
+    "axios": "^0.26.1",
+    "chalk": "^4.1.0",
+    "covgen": "^3.1.0",
+    "esm": "^3.2.18",
+    "execa": "^1.0.0",
+    "gitignore": "^0.6.0",
+    "inquirer": "^6.5.2",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "pkg-install": "^0.2.0",
+    "shelljs": "^0.8.5",
+    "yargs": "^17.3.1"
+  },
+  "description": "📕 `It's an npm package for generating application templates.`",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kraken161/boilerplate-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kraken161/boilerplate-generator/issues"
+  },
+  "homepage": "https://github.com/Kraken161/boilerplate-generator#readme"
 }
