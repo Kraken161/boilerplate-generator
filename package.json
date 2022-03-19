@@ -13,6 +13,9 @@
 	"keywords": [],
 	"description": "",
 	"bin": {
-		"github-pages-commit": "cli/cli.js"
+		"gtt": "bin/test.js"
+	},
+	"scripts": {
+		"deploy": "gtt"
 	}
 }
