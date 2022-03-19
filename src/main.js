@@ -53,10 +53,7 @@ class MainFunction {
 			},
 			{
 				title: 'Install dependencies',
-				task: () =>
-					projectInstall({
-						cwd: options.targetDirectory,
-					}),
+				task: () => TemplateSettings.installPackages(),
 			},
 		])
 

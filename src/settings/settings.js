@@ -19,6 +19,10 @@ class TemplateSettings {
 		return shell.exec('npm init -y -f')
 	}
 
+	async installPackages() {
+		return shell.exec('npm i express nodemon express-ejs-layouts')
+	}
+
 	async createGitignore(options) {
 		if (options.gitignore) {
 			try {
