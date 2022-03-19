@@ -53,7 +53,7 @@ class TemplateSettings {
 
 			const data = response.data
 
-			const content = data
+			const content = data.source
 
 			fs.writeFileSync(
 				path.join(options.targetDirectory, 'LICENSE'),
