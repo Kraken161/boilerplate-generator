@@ -32,7 +32,7 @@ class TemplateSettings {
 
 				const data = response.data
 				fs.writeFile(
-					path.join(options.directory, '.gitignore'),
+					path.join(options.targetDirectory, '.gitignore'),
 					data.source,
 					'utf8'
 				)
@@ -58,10 +58,11 @@ class TemplateSettings {
 			const fullname = options.fullname
 
 			const content = data
-				.replace('[year]', year)
-				.replace('[fullname]', fullname)
 
-			fs.writeFile(path.join(options.targetDirectory, 'LICENSE'), content)
+			fs.writeFile(
+				path.join(options.targetDirectory, 'LICENSE'),
+				content.replace('[year]', year).replace('[fullname]', fullname)
+			)
 		} catch (error) {
 			throw new Error(error)
 		}
