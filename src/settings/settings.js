@@ -55,7 +55,10 @@ class TemplateSettings {
 
 			const content = data
 
-			fs.writeFileSync(path.join(options.targetDirectory, 'LICENSE'), content)
+			fs.writeFileSync(
+				path.join(options.targetDirectory, 'LICENSE'),
+				content.toString()
+			)
 		} catch (error) {
 			throw new Error(error)
 		}
