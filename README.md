@@ -8,7 +8,7 @@
 
 # Usage
 
-📃 `boilerplate-generate generate --express`
+📃 `create-template <express>`
 
 # Author
 
