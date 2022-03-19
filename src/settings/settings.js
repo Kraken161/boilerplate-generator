@@ -31,7 +31,7 @@ class TemplateSettings {
 				}
 
 				const data = response.data
-				fs.writeFile(
+				fs.writeFileSync(
 					path.join(options.targetDirectory, '.gitignore'),
 					data.source
 				)
@@ -53,15 +53,9 @@ class TemplateSettings {
 
 			const data = response.data
 
-			const year = new Date().getFullYear()
-			const fullname = options.fullName
-
 			const content = data
 
-			fs.writeFile(
-				path.join(options.targetDirectory, 'LICENSE'),
-				content.replace('[year]', year).replace('[fullname]', fullname)
-			)
+			fs.writeFileSync(path.join(options.targetDirectory, 'LICENSE'), content)
 		} catch (error) {
 			throw new Error(error)
 		}
