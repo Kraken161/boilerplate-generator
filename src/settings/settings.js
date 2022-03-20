@@ -5,9 +5,6 @@ const { promisify } = require('util')
 const { cwd } = require('process')
 const shell = require('shelljs')
 const axios = require('axios').default
-const { exec } = require('child_process')
-const execa = require('execa')
-const process = require('process')
 
 const copy = promisify(ncp)
 
@@ -19,24 +16,11 @@ class TemplateSettings {
 	}
 
 	async npmInit() {
-		exec('npm init -y', (error, stdout, stderr) => {
-			if (error) {
-				console.log(`error: ${error.message}`)
-				return
-			}
-			if (stderr) {
-				console.log(`stderr: ${stderr}`)
-				return
-			}
-		})
+		return shell.exec('npm init -y', cwd())
 	}
 
-	async installPackages(options) {
-		if (options.type == 'discord-bot') {
-			shell.exec('npm i discord.js ascii chalk@4.1.0')
-		} else if (options.type == 'express') {
-			shell.exec('npm i express nodemon express-ejs-layouts chalk@4.1.0')
-		}
+	async installPackages() {
+		return shell.exec('npm i express nodemon express-ejs-layouts', cwd())
 	}
 
 	async createGitignore(options) {

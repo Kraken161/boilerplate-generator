@@ -2,8 +2,10 @@ const chalk = require('chalk')
 const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
+import { projectInstall } from 'pkg-install'
 const TemplateSettings = require('./settings/settings')
 const { cwd } = require('process')
+
 const access = promisify(fs.access)
 
 class MainFunction {
@@ -51,14 +53,13 @@ class MainFunction {
 			},
 			{
 				title: 'Install dependencies',
-				task: () => TemplateSettings.installPackages(options),
+				task: () => TemplateSettings.installPackages(),
 			},
 		])
 
-		tasks.run().then(() => {
-			console.log('%s Project ready', chalk.green.bold('DONE'))
-		})
+		tasks.run()
 
+		console.log('%s Project ready', chalk.green.bold('DONE'))
 		return true
 	}
 }

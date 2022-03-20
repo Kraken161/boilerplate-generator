@@ -30,61 +30,12 @@ try {
 			type: 'list',
 			name: 'choice',
 			message: 'Choise project template to use.',
-			choices: ['express', 'discord-bot'],
+			choices: ['express', 'other'],
 			default: 'express',
 		})
 		.then((answers) => {
 			const output = answers[Object.keys(answers)[0]]
 			if (output == 'express') {
-				templateOptions.type = output
-				inquirer
-					.prompt([
-						{
-							type: 'list',
-							name: 'choice-license',
-							message: 'Choise license you want to use.',
-							choices: licenses,
-							default: 'none',
-						},
-					])
-					.then((answers) => {
-						templateOptions.license = answers[Object.keys(answers)[0]]
-						inquirer
-							.prompt([
-								{
-									type: 'list',
-									name: 'choice-gitignore',
-									message: 'Choise do you want gitignore or not.',
-									choices: ['yes', 'no'],
-									default: 'yes',
-								},
-							])
-							.then((answers) => {
-								const option = answers[Object.keys(answers)[0]] ? true : false
-								templateOptions.gitignore = option
-
-								MainFunction.createProject(templateOptions)
-							})
-							.catch((error) => {
-								if (error.isTtyError) {
-									throw new Error(
-										`Prompt couldn't be rendered in the current environment`
-									)
-								} else {
-									throw new Error(error)
-								}
-							})
-					})
-					.catch((error) => {
-						if (error.isTtyError) {
-							throw new Error(
-								`Prompt couldn't be rendered in the current environment`
-							)
-						} else {
-							throw new Error(error)
-						}
-					})
-			} else if (output == 'discord-bot') {
 				templateOptions.type = output
 				inquirer
 					.prompt([
