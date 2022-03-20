@@ -26,7 +26,7 @@ class TemplateSettings {
 			const { stdout } = await install(
 				{
 					'discord.js': undefined,
-					chalk: undefined,
+					chalk: '4.1.0',
 					ascii: undefined,
 				},
 				{
@@ -34,21 +34,21 @@ class TemplateSettings {
 					prefer: 'npm',
 				}
 			)
-			return stdout
+			return process.exit(1)
 		} else if (options.type == 'express') {
 			const { stdout } = await install(
 				{
 					express: undefined,
 					nodemon: undefined,
 					'express-ejs-layouts': undefined,
-					chalk: undefined,
+					chalk: '4.1.0',
 				},
 				{
 					dev: true,
 					prefer: 'npm',
 				}
 			)
-			return stdout
+			return process.exit(1)
 		}
 	}
 

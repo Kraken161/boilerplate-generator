@@ -55,9 +55,10 @@ class MainFunction {
 			},
 		])
 
-		tasks.run()
+		tasks.run().then(() => {
+			console.log('%s Project ready', chalk.green.bold('DONE'))
+		})
 
-		console.log('%s Project ready', chalk.green.bold('DONE'))
 		return true
 	}
 }
