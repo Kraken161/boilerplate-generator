@@ -31,19 +31,22 @@ class TemplateSettings {
 
 	async installPackages(options) {
 		if (options.type == 'bot') {
-			exec('npm i discord.js ascii chalk@4.1.0', (error, stdout, stderr) => {
-				if (error) {
-					console.log(`error: ${error.message}`)
-					return
+			return exec(
+				'npm i discord.js ascii chalk@4.1.0',
+				(error, stdout, stderr) => {
+					if (error) {
+						console.log(`error: ${error.message}`)
+						return
+					}
+					if (stderr) {
+						console.log(`stderr: ${stderr}`)
+						return
+					}
+					console.log(stdout)
 				}
-				if (stderr) {
-					console.log(`stderr: ${stderr}`)
-					return
-				}
-				console.log(stdout)
-			})
+			)
 		} else if (options.type == 'express') {
-			exec(
+			return exec(
 				'npm i express nodemon express-ejs-layouts chalk@4.1.0',
 				(error, stdout, stderr) => {
 					if (error) {
