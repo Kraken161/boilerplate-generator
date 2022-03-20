@@ -30,7 +30,7 @@ try {
 			type: 'list',
 			name: 'choice',
 			message: 'Choise project template to use.',
-			choices: ['express', 'other'],
+			choices: ['express'],
 			default: 'express',
 		})
 		.then((answers) => {
