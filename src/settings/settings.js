@@ -30,7 +30,7 @@ class TemplateSettings {
 	}
 
 	async installPackages(options) {
-		if (options.type == 'bot') {
+		if (options.type == 'discord-bot') {
 			return exec(
 				'npm i discord.js ascii chalk@4.1.0',
 				(error, stdout, stderr) => {
