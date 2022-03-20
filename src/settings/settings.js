@@ -5,8 +5,10 @@ const { promisify } = require('util')
 const { cwd } = require('process')
 const shell = require('shelljs')
 const axios = require('axios').default
-
+const { execSync } = require('child_process')
 const copy = promisify(ncp)
+
+const { install } = require('pkg-install')
 
 class TemplateSettings {
 	async copyFilesFromTemplate(options) {
@@ -21,9 +23,32 @@ class TemplateSettings {
 
 	async installPackages(options) {
 		if (options.type == 'discord-bot') {
-			return shell.exec('npm i discord.js ascii chalk')
+			const { stdout } = await install(
+				{
+					'discord.js': undefined,
+					chalk: undefined,
+					ascii: undefined,
+				},
+				{
+					dev: true,
+					prefer: 'npm',
+				}
+			)
+			return stdout
 		} else if (options.type == 'express') {
-			return shell.exec('npm i express nodemon express-ejs-layouts chalk')
+			const { stdout } = await install(
+				{
+					express: undefined,
+					nodemon: undefined,
+					'express-ejs-layouts': undefined,
+					chalk: undefined,
+				},
+				{
+					dev: true,
+					prefer: 'npm',
+				}
+			)
+			return stdout
 		}
 	}
 
