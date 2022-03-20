@@ -33,28 +33,9 @@ class TemplateSettings {
 
 	async installPackages(options) {
 		if (options.type == 'discord-bot') {
-			const result = await execa('npm i discord.js ascii chalk@4.1.0', {
-				cwd: options.targetDirectory,
-			}).then(() => {
-				process.exit(1)
-			})
-			if (result.failed) {
-				return Promise.reject(new Error('Failed to install packages'))
-			}
-			return
+			shell.exec('npm i discord.js ascii chalk@4.1.0')
 		} else if (options.type == 'express') {
-			const result = await execa(
-				'npm i express nodemon express-ejs-layouts chalk@4.1.0',
-				{
-					cwd: options.targetDirectory,
-				}
-			).then(() => {
-				process.exit(1)
-			})
-			if (result.failed) {
-				return Promise.reject(new Error('Failed to install packages'))
-			}
-			return
+			shell.exec('npm i express nodemon express-ejs-layouts chalk@4.1.0')
 		}
 	}
 
