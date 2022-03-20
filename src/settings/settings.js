@@ -5,10 +5,9 @@ const { promisify } = require('util')
 const { cwd } = require('process')
 const shell = require('shelljs')
 const axios = require('axios').default
-const { execSync } = require('child_process')
-const copy = promisify(ncp)
+const { exec } = require('child_process')
 
-const { install } = require('pkg-install')
+const copy = promisify(ncp)
 
 class TemplateSettings {
 	async copyFilesFromTemplate(options) {
@@ -18,18 +17,44 @@ class TemplateSettings {
 	}
 
 	async npmInit() {
-		return execSync(`npm init -y`, { encoding: 'utf8' })
+		exec('npm init -y', (error, stdout, stderr) => {
+			if (error) {
+				console.log(`error: ${error.message}`)
+				return
+			}
+			if (stderr) {
+				console.log(`stderr: ${stderr}`)
+				return
+			}
+		})
 	}
 
 	async installPackages(options) {
-		if (options.type == 'discord-bot') {
-			return execSync(`npm i discord.js ascii chalk@4.1.0`, {
-				encoding: 'utf8',
+		if (options.type == 'bot') {
+			exec('npm i discord.js ascii chalk@4.1.0', (error, stdout, stderr) => {
+				if (error) {
+					console.log(`error: ${error.message}`)
+					return
+				}
+				if (stderr) {
+					console.log(`stderr: ${stderr}`)
+					return
+				}
 			})
 		} else if (options.type == 'express') {
-			return execSync(`npm i express nodemon express-ejs-layouts chalk@4.1.0`, {
-				encoding: 'utf8',
-			})
+			exec(
+				'npm i express nodemon express-ejs-layouts chalk@4.1.0',
+				(error, stdout, stderr) => {
+					if (error) {
+						console.log(`error: ${error.message}`)
+						return
+					}
+					if (stderr) {
+						console.log(`stderr: ${stderr}`)
+						return
+					}
+				}
+			)
 		}
 	}
 
