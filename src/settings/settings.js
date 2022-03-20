@@ -16,11 +16,15 @@ class TemplateSettings {
 	}
 
 	async npmInit() {
-		return shell.exec('npm init -y -f')
+		return shell.exec('npm init -y')
 	}
 
-	async installPackages() {
-		return shell.exec('npm i express nodemon express-ejs-layouts')
+	async installPackages(options) {
+		if (options.type == 'discord-bot') {
+			return shell.exec('npm i discord.js ascii chalk')
+		} else if (options.type == 'express') {
+			return shell.exec('npm i express nodemon express-ejs-layouts chalk')
+		}
 	}
 
 	async createGitignore(options) {
