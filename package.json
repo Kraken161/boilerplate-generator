@@ -26,10 +26,13 @@
     "covgen": "^3.1.0",
     "esm": "^3.2.18",
     "execa": "^1.0.0",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
     "gitignore": "^0.6.0",
     "inquirer": "^6.5.2",
     "listr": "^0.14.3",
     "ncp": "^2.0.0",
+    "nodemon": "^2.0.15",
     "pkg-install": "^0.2.0",
     "shelljs": "^0.8.5",
     "yargs": "^17.3.1"
@@ -38,7 +41,6 @@
   "directories": {
     "lib": "lib"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

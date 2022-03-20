@@ -16,11 +16,11 @@ class TemplateSettings {
 	}
 
 	async npmInit() {
-		return shell.exec('npm init -y', cwd())
+		shell.exec('npm init -y', cwd())
 	}
 
 	async installPackages() {
-		return shell.exec('npm i express nodemon express-ejs-layouts', cwd())
+		shell.exec('npm i express nodemon express-ejs-layouts', cwd())
 	}
 
 	async createGitignore(options) {
