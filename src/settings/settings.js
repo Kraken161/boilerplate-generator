@@ -18,37 +18,18 @@ class TemplateSettings {
 	}
 
 	async npmInit() {
-		return shell.exec('npm init -y')
+		return execSync(`npm init -y`, { encoding: 'utf8' })
 	}
 
 	async installPackages(options) {
 		if (options.type == 'discord-bot') {
-			const { stdout } = await install(
-				{
-					'discord.js': undefined,
-					chalk: '4.1.0',
-					ascii: undefined,
-				},
-				{
-					dev: true,
-					prefer: 'npm',
-				}
-			)
-			return process.exit(1)
+			return execSync(`npm i discord.js ascii chalk@4.1.0`, {
+				encoding: 'utf8',
+			})
 		} else if (options.type == 'express') {
-			const { stdout } = await install(
-				{
-					express: undefined,
-					nodemon: undefined,
-					'express-ejs-layouts': undefined,
-					chalk: '4.1.0',
-				},
-				{
-					dev: true,
-					prefer: 'npm',
-				}
-			)
-			return process.exit(1)
+			return execSync(`npm i express nodemon express-ejs-layouts chalk@4.1.0`, {
+				encoding: 'utf8',
+			})
 		}
 	}
 
