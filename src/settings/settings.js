@@ -40,6 +40,7 @@ class TemplateSettings {
 					console.log(`stderr: ${stderr}`)
 					return
 				}
+				console.log(stdout)
 			})
 		} else if (options.type == 'express') {
 			exec(
@@ -53,6 +54,7 @@ class TemplateSettings {
 						console.log(`stderr: ${stderr}`)
 						return
 					}
+					console.log(stdout)
 				}
 			)
 		}
