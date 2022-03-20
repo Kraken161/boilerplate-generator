@@ -6,6 +6,8 @@ const { cwd } = require('process')
 const shell = require('shelljs')
 const axios = require('axios').default
 const { exec } = require('child_process')
+const execa = require('execa')
+const process = require('process')
 
 const copy = promisify(ncp)
 
@@ -31,35 +33,28 @@ class TemplateSettings {
 
 	async installPackages(options) {
 		if (options.type == 'discord-bot') {
-			return exec(
-				'npm i discord.js ascii chalk@4.1.0',
-				(error, stdout, stderr) => {
-					if (error) {
-						console.log(`error: ${error.message}`)
-						return
-					}
-					if (stderr) {
-						console.log(`stderr: ${stderr}`)
-						return
-					}
-					console.log(stdout)
-				}
-			)
+			const result = await execa('npm i discord.js ascii chalk@4.1.0', {
+				cwd: options.targetDirectory,
+			}).then(() => {
+				process.exit(1)
+			})
+			if (result.failed) {
+				return Promise.reject(new Error('Failed to install packages'))
+			}
+			return
 		} else if (options.type == 'express') {
-			return exec(
+			const result = await execa(
 				'npm i express nodemon express-ejs-layouts chalk@4.1.0',
-				(error, stdout, stderr) => {
-					if (error) {
-						console.log(`error: ${error.message}`)
-						return
-					}
-					if (stderr) {
-						console.log(`stderr: ${stderr}`)
-						return
-					}
-					console.log(stdout)
+				{
+					cwd: options.targetDirectory,
 				}
-			)
+			).then(() => {
+				process.exit(1)
+			})
+			if (result.failed) {
+				return Promise.reject(new Error('Failed to install packages'))
+			}
+			return
 		}
 	}
 
